@@ -814,6 +814,12 @@
     githubId = 10285250;
     name = "Artur E. Ruuge";
   };
+  arvindpunk = {
+    email = "arvindpunk@gmail.com";
+    github = "arvindpunk";
+    githubId = 24990564;
+    name = "Arvind PJ";
+  };
   asbachb = {
     email = "asbachb-nixpkgs-5c2a@impl.it";
     github = "asbachb";
