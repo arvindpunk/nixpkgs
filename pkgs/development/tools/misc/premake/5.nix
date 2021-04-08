@@ -4,21 +4,16 @@ with lib;
 
 stdenv.mkDerivation rec {
   pname = "premake5";
-  version = "5.0.0-alpha12";
+  version = "5.0.0-alpha15";
 
   src = fetchFromGitHub {
     owner = "premake";
     repo = "premake-core";
     rev = "v${version}";
-    sha256 = "1h3hr96pdz94njn4bg02ldcz0k5j1x017d8svc7fdyvl2b77nqzf";
+    sha256 = "0cdwc7qbxyprgvgfk81xs3g19fvmkxgq2k58f65kbwx40ymn3xzh";
   };
 
   buildInputs = optionals stdenv.isDarwin [ Foundation readline ];
-
-  patchPhase = optional stdenv.isDarwin ''
-    substituteInPlace premake5.lua \
-      --replace -mmacosx-version-min=10.4 -mmacosx-version-min=10.5
-  '';
 
   buildPhase =
     if stdenv.isDarwin then ''
@@ -37,7 +32,8 @@ stdenv.mkDerivation rec {
   meta = {
     homepage = "https://premake.github.io";
     description = "A simple build configuration and project generation tool using lua";
-    license = lib.licenses.bsd3;
+    license = licenses.bsd3;
     platforms = platforms.darwin ++ platforms.linux;
+    maintainers = with maintainers; [ arvindpunk ];
   };
 }
